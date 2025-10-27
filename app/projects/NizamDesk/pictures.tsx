@@ -3,28 +3,31 @@
 import { useState } from "react";
 import Image from "next/image";
 
+const BASE_PATH = "/elbeheiry-portfolio";
+
 const images = [
   {
-    src: "/nizam-desk/dark-mode-start-nizam-desk.webp",
+    src: `/nizam-desk/dark-mode-start-nizam-desk.webp`,
     alt: "Dark Mode Start Nizam Desk",
     desc: "Dark mode home screen"
   },
   {
-    src: "/nizam-desk/light-mode-start-nizam-desk.webp",
+    src: `/nizam-desk/light-mode-start-nizam-desk.webp`,
     alt: "Light Mode Start Nizam Desk",
     desc: "Light mode home screen"
   },
   {
-    src: "/nizam-desk/login-page-dark.webp",
+    src: `/nizam-desk/login-page-dark.webp`,
     alt: "Login Page Dark",
     desc: "Login page in dark mode"
   },
   {
-    src: "/nizam-desk/register-page-dark.webp",
+    src: `/nizam-desk/register-page-dark.webp`,
     alt: "Register Page Dark",
     desc: "Register page in dark mode"
   },
 ];
+
 
 export default function NizamDeskPage() {
   const [selectedImage, setSelectedImage] = useState<{src: string; alt: string; desc: string} | null>(null);
