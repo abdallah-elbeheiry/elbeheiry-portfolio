@@ -3,31 +3,31 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const BASE_PATH = "/elbeheiry-portfolio";
+const isProd = process.env.NODE_ENV === "production";
+const BASE_PATH = isProd ? "/elbeheiry-portfolio" : "";
 
 const images = [
   {
-    src: `/nizam-desk/dark-mode-start-nizam-desk.webp`,
+    src: `${BASE_PATH}/nizam-desk/dark-mode-start-nizam-desk.webp`,
     alt: "Dark Mode Start Nizam Desk",
     desc: "Dark mode home screen"
   },
   {
-    src: `/nizam-desk/light-mode-start-nizam-desk.webp`,
+    src: `${BASE_PATH}/nizam-desk/light-mode-start-nizam-desk.webp`,
     alt: "Light Mode Start Nizam Desk",
     desc: "Light mode home screen"
   },
   {
-    src: `/nizam-desk/login-page-dark.webp`,
+    src: `${BASE_PATH}/nizam-desk/login-page-dark.webp`,
     alt: "Login Page Dark",
     desc: "Login page in dark mode"
   },
   {
-    src: `/nizam-desk/register-page-dark.webp`,
+    src: `${BASE_PATH}/nizam-desk/register-page-dark.webp`,
     alt: "Register Page Dark",
     desc: "Register page in dark mode"
   },
 ];
-
 
 export default function NizamDeskPage() {
   const [selectedImage, setSelectedImage] = useState<{src: string; alt: string; desc: string} | null>(null);
@@ -50,6 +50,7 @@ export default function NizamDeskPage() {
                 alt={img.alt}
                 fill
                 className="object-contain rounded-lg shadow-md"
+                unoptimized // <--- important for static export
               />
             </div>
             <p className="mt-2 text-center text-gray-700 dark:text-gray-300">
@@ -71,6 +72,7 @@ export default function NizamDeskPage() {
               width={1800}
               height={1200}
               className="rounded-lg shadow-lg"
+              unoptimized
             />
             <p className="mt-2 text-center text-white">{selectedImage.desc}</p>
           </div>

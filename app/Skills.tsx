@@ -4,7 +4,7 @@ export default function Skills() {
     return (
         <section
             id="skills"
-            className="flex flex-col items-center justify-center mt-20 text-center px-6"
+            className="flex flex-col items-center justify-center mt-20 text-center px-6 scroll-mt-32"
         >
             <h2 className="text-3xl font-bold mb-6 text-blue-600 dark:text-purple-800">
                 My Skills

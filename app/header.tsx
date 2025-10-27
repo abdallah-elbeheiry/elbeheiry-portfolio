@@ -13,10 +13,10 @@ export default function Header() {
 
         {/* Desktop Links */}
         <nav className="hidden sm:flex space-x-2 items-center text-gray-600 dark:text-gray-300 font-medium">
-          <a href="#introduction" className="px-4 py-2 hover:bg-blue-100 dark:hover:bg-gray-700 rounded transition-all">Home</a>
-          <a href="#skills" className="px-4 py-2 hover:bg-blue-100 dark:hover:bg-gray-700 rounded transition-all">Skills</a>
-          <a href="#projects" className="px-4 py-2 hover:bg-blue-100 dark:hover:bg-gray-700 rounded transition-all">Projects</a>
-          <a href="#contact" className="px-4 py-2 hover:bg-blue-100 dark:hover:bg-gray-700 rounded transition-all">Contact</a>
+          <a href="/#introduction" className="px-4 py-2 hover:bg-blue-100 dark:hover:bg-gray-700 rounded transition-all">Home</a>
+          <a href="/#skills" className="px-4 py-2 hover:bg-blue-100 dark:hover:bg-gray-700 rounded transition-all">Skills</a>
+          <a href="/#projects" className="px-4 py-2 hover:bg-blue-100 dark:hover:bg-gray-700 rounded transition-all">Projects</a>
+          <a href="/#contact" className="px-4 py-2 hover:bg-blue-100 dark:hover:bg-gray-700 rounded transition-all">Contact</a>
           <ThemeToggle />
         </nav>
 

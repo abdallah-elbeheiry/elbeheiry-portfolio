@@ -5,9 +5,8 @@ import Link from "next/link";
 export default function Projects() {
     return (
         <section
-
             id="projects"
-            className="flex flex-col items-center justify-center mt-20 text-center px-6"
+            className="flex flex-col items-center justify-center mt-20 text-center px-6 scroll-mt-32"
         >
             <h2 className="text-3xl font-bold mb-6 text-blue-600 dark:text-purple-800">
                 My Projects
