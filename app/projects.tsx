@@ -21,7 +21,7 @@ export default function Projects() {
                         A text-based RPG game built with <strong>C#</strong> and <strong>.NET MAUI</strong>, featuring turn-based combat mechanics.<br /><br />
                         Via this project, I gained experience in game design, state management, saveState with a local database with <strong>SQLite</strong>, <strong>Entity Framework core</strong>, <strong>Factory pattern</strong> and <strong>Singleton pattern</strong>, <strong>Asynchronous programming</strong>, and more. <br /><br />
                         The game offers an engaging experience with character progression, inventory and shop management, and diverse enemy encounters. <br /><br />
-                        It was a great opportunity to enhance my skills in C# and .NET MAUI while creating an enjoyable gaming experience. <br /><br />
+                        It was a great opportunity to enhance my skills in C# and .NET MAUI while following my passion for gaming. <br /><br />
                         It's also my first (real) published project on GitHub! Check it out below:
                     </p>
 
@@ -64,11 +64,12 @@ export default function Projects() {
                 <div className="bg-gray-300 dark:bg-gray-800 rounded-xl shadow-md flex flex-col items-center justify-start text-xl font-semibold p-6 text-center">
                     <h3 className="text-2xl mb-2 text-blue-600 dark:text-purple-800">NizamDesk</h3>
                     <p className="text-base text-start font-normal text-gray-700 dark:text-gray-200 mb-4 leading-relaxed">
-                        A productivity web application built using <strong>ASP.NET</strong> (previously used <strong>MVC</strong> before I switched to <strong>Blazor</strong>), designed to help users manage their tasks and projects efficiently. <br /><br />
-                        In this project, I implemented a <strong>login and logout system</strong> using SQLServer as my database. including handling logins from external providers via <strong>OAuth</strong><br /><br />
-                        I also learned many aspects of security such as <strong>password hashing</strong> and <strong>input validation</strong> to ensure user data protection. And learned the importance of JWT (JSON Web Tokens) for secure user authentication. Though it is still a work in progress, I am proud of the foundation I have built. <br /><br />
+                        A productivity web application built using <strong>ASP.NET</strong> <strong>Blazor</strong> (previously <strong>MVC</strong>), designed to help users manage their tasks and projects. <br /><br />
+                        In this project, I implemented a <strong>login and logout system</strong> using SQLServer with support for external providers via <strong>OAuth</strong><br /><br />
+                        I also learned many aspects of security such as <strong>password hashing</strong> and <strong>input validation</strong> to ensure user data protection. I am proud of the foundation I have built. <br /><br />
                         This project allowed me to deepen my understanding of full-stack development, including RESTful APIs, database management, and user authentication. <br /><br />
-                        This project is currently on hold while I explore other areas of software development, but I am proud of the solid foundation I have built and plan to resume it in the future.
+                        This project is currently on hold while I explore other areas of software development, but I am proud of the solid foundation I have built and plan to resume it in the future. <Link className="text-blue-600 dark:text-purple-400" href="projects/NizamDesk">learn more</Link>.<br /><br />
+                        Check it out below:
                     </p>
 
                     <Link
