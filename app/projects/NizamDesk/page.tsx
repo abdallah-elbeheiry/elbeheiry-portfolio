@@ -5,51 +5,122 @@ import Pictures from "./pictures";
 
 export default function NizamDeskPage() {
     return (
-        <div className="bg-gray-50 dark:bg-gray-900 transition-colors duration-500 ease-in-out min-h-screen">
+        <div className="bg-gray-50 dark:bg-gray-900 transition-colors duration-500 min-h-screen">
             <h1 className="text-5xl font-bold text-blue-600 dark:text-purple-800 text-center pt-20 mb-10">
                 NizamDesk
             </h1>
-            <div className="flex items-center justify-center loader mx-auto mb-6">
-                <h2 className="text-2xl font-semibold mb-6 px-4">Project Analysis (why I did what I did):</h2>
+
+            <div className="flex justify-center items-center mx-auto mb-6">
+                <h2 className="text-2xl font-semibold mb-6 px-4">
+                    Project Analysis (why I did what I did):
+                </h2>
             </div>
-            <div className="max-w-3xl mx-auto text-gray-900 dark:text-gray-100 transition-colors duration-500 px-4">
-                <p className="text-start mb-10 px-4">
-                    This unfinished project is an attempt at making an employee and project management system combining some features of Jira and Discord, though what's made as of now is the login/logout. <br /><br /> </p>
-                <h2 className="text-2xl font-semibold mt-6 mb-4">Why Blazor? And why freeze the project?</h2>
-                <p className="text-start mb-10 px-4">
-                    Well, initially I didn't even choose Blazor, I actually went with ASP.NET MVC, but did not get the seamless frontend exprience I had similar to what I got with XAML in .NET MAUI <br /><br />
-                    So I switched to Blazor, Because I heard it's way better and more modern than ASP.NET MVC, but I also wasn't comfortable with it, it was demoralizing, ASP.NET is great for backend in general but for web frontend I didn't get the best experience, I still believe I have had a much much better experience with XAML frontend using MVVM. <br /><br />
-                    But I did learn a lot about Blazor and .NET web development in general, and I do believe that Blazor has great potential, but I believe that it's not as good of an experience as ReactJS. <br /><br />
-                    But as I wrote more and more and got things working, I started to realize that I had many things done wrong, I did not setup JWT correctly, the layer architecture I planned has been flawed, the Services layer gave the exact same feeling the Logic layer did but with less lines of code. <br /><br />
-                    I also realized that I was not following best practices for Blazor development, I was mixing UI logic with business logic, I was not using dependency injection correctly, and I was not using the built-in features of Blazor to their full potential. <br /><br />
-                    And the most critical mistake I have made was designing the database schema incorrectly, It was confusing and didn't make sense, and by the time I realized it, I had already written a lot of code that depended on that schema. <br /><br />
-                    So I had to stop development on this project, and take a step back, and re-evaluate my approach. and learn from my mistakes to not make them again in the future<br /><br />
+
+            <div className="max-w-5xl mx-auto text-gray-900 dark:text-gray-100 px-4">
+                <p className="mb-10 px-4">
+                    This unfinished project is an attempt at making an employee and project
+                    management system combining some features of Jira and Discord, though
+                    what’s made as of now is the login/logout.
                 </p>
-                <h2 className="text-2xl font-semibold mt-6 mb-4">What are my plans with the project?</h2>
-                <p className="text-start mb-10 px-4">
-                    I don't plan to return to this project again, however I do plan to copy certain aspects of the code into a new project, but using a different tech stack. <br /><br />
-                    I would still use ASP.NET for the backend, but for the frontend I plan to use ReactJS with TypeScript, as now I have tried I got a way better front experience with it. <br /><br />
-                    How I will do it is to make an API using ASP.NET Web API, and then make a ReactJS frontend that consumes the API. each in a separate project. independent<br /><br />
-                    And I also plan to remake the whole database schema from scratch, making sure to not repeat the mistakes of the past. <br /><br />
-                    So overall, this project was a great learning experience for me, and I am grateful for the mistakes I made, as they have helped me grow as a developer. and I will return to this project once I ensure my knowledge is deepened enough in other fields.
+
+                <h2 className="text-2xl font-semibold mt-6 mb-4">
+                    Why Blazor? And why freeze the project?
+                </h2>
+
+                <p className="mb-10 px-8 leading-relaxed">
+                    Initially I didn’t choose Blazor — I first tried ASP.NET MVC, but
+                    did not get the seamless frontend experience I had with XAML in MAUI.
+                    <br /><br />
+                    So I switched to Blazor because it's more modern, but I also wasn’t
+                    comfortable with it. ASP.NET is great for backend
+                    but the frontend experience didn’t feel as good as React (which I have tried later on).
+                    <br /><br />
+                    I also realized I made architecture mistakes: JWT setup was wrong, the
+                    layers were designed poorly, and I was mixing UI logic with business
+                    logic. Dependency injection wasn’t used properly either.
+                    <br /><br />
+                    The biggest mistake was the database schema being designed incorrectly,
+                    and the code I already wrote depended on that schema.
+                    <br /><br />
+                    So I paused development to reevaluate and learn from these mistakes.
+                </p>
+
+                <h2 className="text-2xl font-semibold mt-6 mb-4">Update</h2>
+
+                <p className="mb-10 px-8 leading-relaxed">
+                    I decided to delete the entire frontend (and most of the project except
+                    entities and minor logic) and rebuild it as a pure backend API in .NET.
+                    I plan to later create the frontend in Next.js.
+                    <br /><br />
+                    Basically I'm switching to a NPN tech stack, next.js, .NET and PostgreSQL... I just made that name up
+                    <br /><br />
+                    I also fixed the database issues mentioned earlier. the main problem was missing entity
+                    relationships, which caused a lot of trouble and confusion. Also fixed the dependency injection issues mentioned earlier
+                    <br /><br />
+                    I also removed the JWT authentication part temporarily, as I wanted to get a minimal API working then I would think about that
+                </p>
+
+                <h2 className="text-2xl font-semibold mt-6 mb-4">More project details</h2>
+                <h3 className="text-xl font-semibold mt-4 mb-2 px-4">Enum flags</h3>
+                <p className="mb-10 px-8 leading-relaxed">
+                    The enum flag [Flags] I used for permissions... why? well, I thought about what's an appropriate way to implement permissions, a few methods came to mind:
+                    <ul className="list-disc list-inside mt-2 mb-4 px-8">
+                        <li>a class with a list of permissions as boolean values each representing a different permission</li>
+                        <li>taking the permissions of the highest role only (in index)</li>
+                        <li>using an enum</li>
+                    </ul>
+                    The class method seemed too verbose and would be way too complex in my opinion, plus how do I even combine multiple permissions of different roles? manually ensure that all permissions are combined correctly? yeah no thanks.
+                    <br />
+                    The highest role method could work in theory, sounds simple enough, but I wanted the roles permissions to function like discord, so that is too limiting and will cause logic errors
+                    <br />
+                    Even enums I quickly thought that they would only store one permission at the time... that was until I learned about the [Flags] attribute in C# which was perfect for my use Case.
+                    <br /><br />
+                    The main idea is treat every single permission as a bit in a binary number, so for example if we have 4 permissions:
+                    <ul className="list-disc list-inside mt-2 mb-4 px-8">
+                        <li>Read (1000)</li>
+                        <li>Write (0100)</li>
+                        <li>Delete (0010)</li>
+                        <li>Admin (0001)</li>
+                    </ul>
+                    Now if a role has Read and Delete permissions, we just add the values 1 + 4 = 5, and store that single integer value (5) as the role's permissions.
+                    <br />
+                    Later on when checking permissions, we can use bitwise operations to check if a role has a specific permission, for example to check if the role has Delete permission, we do (enumValue & enum.Delete) == enum.Delete, which is true.
+                    <br /><br />
+                    This method allows me to combine permissions of multiple roles easily, just by doing a bitwise OR operation on their enum values.
+                </p>
+                <h3 className="text-xl font-semibold mt-4 mb-2 px-4">Password handling</h3>
+                <p className="mb-10 px-8 leading-relaxed">
+                    For password hashing I used the System.Security.Cryptography library built into .NET and used SHA256 algorithm to hash the password, which according to my research is secure enough for my project.
+                    <br /><br />
+                    I also added salting to the password hashing process, which is basically adding a random string to the password before hashing it, this prevents rainbow table attacks.
+                    <br /><br />
+                    And finally I used a pepper to improve security even more, but I decided to take a more "unique" approach, 
+                    most people only say they add it at the start once or the end once... I added it once at the start and twice at the end, 
+                    not mentioning that I randomized ascii values from 100 to 128
+                    <br /><br />
+                    of course, there is a reason why I decided to take this interesting approach, when I researched how rainbow attacks work, I figured that there it's less likely to find a match if I intentionally mislead the attacker, 
+                    and the best way to mislead them is to use peculiar peppering formats that are not common, so that even if they try to use rainbow tables with common peppering formats, they won't find a match.
+                    and even if they predict that the pepper is once at the start twice at the end, good luck predicting that it's also randomized ascii values from 100 to 128 and not the typical numbers or letters.
+                    <br /><br />
+                    And of course when I want to verify a password, I just hash the input password with the same salt stored inside the database and compare the hashes. and of course use the same peculiar peppering format I used before, looping from ascii values 100 to 128.
                 </p>
             </div>
 
-            <div className="flex items-center w-5xl justify-center loader mx-auto mb-10 gap-5">
-                <Link href="/projects" >
-                    <button className="mx-auto mt-10 px-6 py-3 bg-blue-600 dark:bg-purple-800 hover:bg-blue-700 dark:hover:bg-purple-900 text-white rounded-lg font-semibold transition-colors duration-300">
+            <div className="flex justify-center items-center mx-auto mb-10 gap-5">
+                <Link href="/projects">
+                    <button className="mt-10 px-6 py-3 bg-blue-600 dark:bg-purple-800 hover:bg-blue-700 dark:hover:bg-purple-900 text-white rounded-lg font-semibold transition-colors duration-300">
                         Back to Projects
                     </button>
                 </Link>
-                <Link href="/" >
-                    <button className="mx-auto mt-10 px-6 py-3 bg-blue-600 dark:bg-purple-800 hover:bg-blue-700 dark:hover:bg-purple-900 text-white rounded-lg font-semibold transition-colors duration-300">
+
+                <Link href="/">
+                    <button className="mt-10 px-6 py-3 bg-blue-600 dark:bg-purple-800 hover:bg-blue-700 dark:hover:bg-purple-900 text-white rounded-lg font-semibold transition-colors duration-300">
                         Back to Home
                     </button>
                 </Link>
             </div>
 
             <Pictures />
-
         </div>
     );
 }
