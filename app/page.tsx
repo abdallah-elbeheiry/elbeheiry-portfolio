@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Header from "./header";
 import Introduction from "./Introduction";
 import Projects from "./projects";
@@ -9,6 +10,14 @@ export default function Home() {
       <Introduction />
       <TechStack />
       <Projects />
+      <div className="flex justify-center mb-10">
+        <Link href="/projects">
+          <button className="w-7xl bg-blue-600 dark:bg-purple-800 hover:bg-blue-700 dark:hover:bg-purple-900 text-white py-2 px-4 rounded-lg font-semibold transition-colors duration-300">
+            All projects
+          </button>
+        </Link>
+      </div>
+
 
     </div>
   );

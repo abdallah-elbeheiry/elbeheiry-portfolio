@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "elbeheiry-portfolio",
   "version": "0.1.0",
   "private": true,
@@ -10,9 +11,12 @@
     "deploy": "gh-pages -d out --nojekyll --cname teracura.github.io/elbeheiry-portfolio"
   },
   "dependencies": {
+    "github-markdown-css": "^5.8.1",
     "next": "16.0.0",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
