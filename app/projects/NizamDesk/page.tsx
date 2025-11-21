@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import Pictures from "./pictures";
 
@@ -17,6 +16,7 @@ export default function NizamDeskPage() {
             </div>
 
             <div className="max-w-5xl mx-auto text-gray-900 dark:text-gray-100 px-4">
+
                 <p className="mb-10 px-4">
                     This unfinished project is an attempt at making an employee and project
                     management system combining some features of Jira and Discord, though
@@ -62,47 +62,54 @@ export default function NizamDeskPage() {
 
                 <h2 className="text-2xl font-semibold mt-6 mb-4">More project details</h2>
                 <h3 className="text-xl font-semibold mt-4 mb-2 px-4">Enum flags</h3>
+
+                <p className="px-8 leading-relaxed">
+                    The enum flag [Flags] I used for permissions... why? well, I thought about what's an appropriate
+                    way to implement permissions, a few methods came to mind:
+                </p>
+
+                <ul className="list-disc list-inside mt-2 mb-4 px-12">
+                    <li>a class with a list of permissions as boolean values each representing a different permission</li>
+                    <li>taking the permissions of the highest role only (in index)</li>
+                    <li>using an enum</li>
+                </ul>
+
                 <p className="mb-10 px-8 leading-relaxed">
-                    The enum flag [Flags] I used for permissions... why? well, I thought about what's an appropriate way to implement permissions, a few methods came to mind:
-                    <ul className="list-disc list-inside mt-2 mb-4 px-8">
-                        <li>a class with a list of permissions as boolean values each representing a different permission</li>
-                        <li>taking the permissions of the highest role only (in index)</li>
-                        <li>using an enum</li>
-                    </ul>
-                    The class method seemed too verbose and would be way too complex in my opinion, plus how do I even combine multiple permissions of different roles? manually ensure that all permissions are combined correctly? yeah no thanks.
+                    The class method seemed too verbose and would be way too complex in my opinion, plus how do I even combine
+                    multiple permissions of different roles? manually ensure that all permissions are combined correctly? yeah no thanks.
                     <br />
-                    The highest role method could work in theory, sounds simple enough, but I wanted the roles permissions to function like discord, so that is too limiting and will cause logic errors
+                    The highest role method could work in theory, sounds simple enough, but I wanted the roles permissions to function
+                    like discord, so that is too limiting and will cause logic errors.
                     <br />
-                    Even enums I quickly thought that they would only store one permission at the time... that was until I learned about the [Flags] attribute in C# which was perfect for my use Case.
+                    Even enums I quickly thought that they would only store one permission at the time... that was until I learned
+                    about the [Flags] attribute in C# which was perfect for my use case.
                     <br /><br />
                     The main idea is treat every single permission as a bit in a binary number, so for example if we have 4 permissions:
-                    <ul className="list-disc list-inside mt-2 mb-4 px-8">
-                        <li>Read (1000)</li>
-                        <li>Write (0100)</li>
-                        <li>Delete (0010)</li>
-                        <li>Admin (0001)</li>
-                    </ul>
-                    Now if a role has Read and Delete permissions, we just add the values 1 + 4 = 5, and store that single integer value (5) as the role's permissions.
-                    <br />
-                    Later on when checking permissions, we can use bitwise operations to check if a role has a specific permission, for example to check if the role has Delete permission, we do (enumValue & enum.Delete) == enum.Delete, which is true.
-                    <br /><br />
-                    This method allows me to combine permissions of multiple roles easily, just by doing a bitwise OR operation on their enum values.
                 </p>
-                <h3 className="text-xl font-semibold mt-4 mb-2 px-4">Password handling</h3>
+
+                <ul className="list-disc list-inside mt-2 mb-4 px-12">
+                    <li>Read (1000)</li>
+                    <li>Write (0100)</li>
+                    <li>Delete (0010)</li>
+                    <li>Admin (0001)</li>
+                </ul>
+
                 <p className="mb-10 px-8 leading-relaxed">
-                    For password hashing I used the System.Security.Cryptography library built into .NET and used SHA256 algorithm to hash the password, which according to my research is secure enough for my project.
+                    Now if a role has Read and Delete permissions, we just add the values 1 + 4 = 5, and store that single integer value.
+                    <br />
+                    Later on when checking permissions, we can use bitwise operations…
+                </p>
+
+                <h3 className="text-xl font-semibold mt-4 mb-2 px-4">Password handling</h3>
+
+                <p className="mb-10 px-8 leading-relaxed">
+                    For password hashing I used the System.Security.Cryptography library and SHA256.
                     <br /><br />
-                    I also added salting to the password hashing process, which is basically adding a random string to the password before hashing it, this prevents rainbow table attacks.
+                    I also added salting…
                     <br /><br />
-                    And finally I used a pepper to improve security even more, but I decided to take a more "unique" approach, 
-                    most people only say they add it at the start once or the end once... I added it once at the start and twice at the end, 
-                    not mentioning that I randomized ascii values from 100 to 128
+                    And finally I used a pepper… once at the start and twice at the end, with random ASCII values 100–128.
                     <br /><br />
-                    of course, there is a reason why I decided to take this interesting approach, when I researched how rainbow attacks work, I figured that there it's less likely to find a match if I intentionally mislead the attacker, 
-                    and the best way to mislead them is to use peculiar peppering formats that are not common, so that even if they try to use rainbow tables with common peppering formats, they won't find a match.
-                    and even if they predict that the pepper is once at the start twice at the end, good luck predicting that it's also randomized ascii values from 100 to 128 and not the typical numbers or letters.
-                    <br /><br />
-                    And of course when I want to verify a password, I just hash the input password with the same salt stored inside the database and compare the hashes. and of course use the same peculiar peppering format I used before, looping from ascii values 100 to 128.
+                    And of course when verifying a password, I hash the input with the same salt and the same peppering format.
                 </p>
             </div>
 
