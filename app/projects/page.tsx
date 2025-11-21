@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function ProjectsFallBack() {
     return (
         <div className="bg-gray-50 dark:bg-gray-900 transition-colors duration-500 ease-in-out min-h-screen">
-            <h1 className="text-5xl font-bold text-blue-600 dark:text-purple-700 text-center pt-20 mb-10 mt-5">
+            <h1 className="text-5xl font-bold text-blue-600 dark:text-purple-700 text-center pt-20 mt-5 mb-10">
                 All projects
             </h1>
             <div className="flex flex-col items-center space-y-6 mx-auto mb-6">
@@ -34,7 +34,7 @@ export default function ProjectsFallBack() {
                 </Link>
             </div>
 
-            <p className="text-center">
+            <p className="text-center dark:text-gray-300 text-gray-700 mb-10 px-4">
                 return to the <Link href="/" className="text-blue-600 dark:text-purple-400">homepage</Link>?
             </p>
         </div>

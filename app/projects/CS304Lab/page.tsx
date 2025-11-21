@@ -32,7 +32,7 @@ export default function CS304LabLearnMore() {
                 </p>
                 <ul className="list-disc list-outside mb-10 px-8 leading-relaxed">
                     <li>
-                        <strong>Game</strong>: contains game logic, window(page) management, loop(physics loop)
+                        <strong>Game</strong>: contains game logic, window(scene) management, loop(physics loop)
                         handling, as well as input handling.
                     </li>
                     <br />
@@ -59,7 +59,7 @@ export default function CS304LabLearnMore() {
                     <br />
 
                     <li>
-                        <strong>SceneRenderers</strong>: Renderers that render scenes and pages, each renderer is made to render a specific scene or page
+                        <strong>SceneRenderers</strong>: Renderers that render scenes and windows, each renderer is made to render a specific scene or window
 
                         <ul className="list-disc list-inside">
                             <li><strong>StandardRenderers</strong>: renderers that implements <code>GlEventListener</code>, can be either static renders or animation renders with no physics logic and no physics cycles, runs purely off of FPS</li>
@@ -78,21 +78,21 @@ export default function CS304LabLearnMore() {
                 </h3>
 
                 <p className="mb-10 px-8 leading-relaxed">
-                    There are two cycles happening at the same time, both spanning the lifecycle of each page/scene individually.
+                    There are two cycles happening at the same time, both spanning the lifecycle of each window/scene individually.
                     <br />
-                    the first cycle is called the physics cycle, runs a fixed amount of times (though can be altered to change game speed) across all pages/scenes at the same time, this cycle is responsible for updating all physics logic, movement logic, collision detection etc.
+                    the first cycle is called the physics cycle, runs a fixed amount of times (though can be altered to change game speed) across all windows/scenes at the same time, this cycle is responsible for updating all physics logic, movement logic, collision detection etc.
                     <br />
                     the reason why it's its own cycle in the first place is to decouple physics logic from rendering logic, that way incase a heavy scene is loading and starts effecting the FPS, no physics bugs happen, as physics is updated at a fixed rate regardless of rendering speed.
                     <br /><br />
                     the second cycle is the rendering cycle (or Frame cycle).
                     <br />
-                    which means each page/scene can run at an FPS unique from another page, I designed it that way so when multiple pages/scenes are open at the same time, no heavy scene bottlenecks a lighter scene.
+                    which means each window/scene can run at an FPS unique from another window, I designed it that way so when multiple windows/scenes are open at the same time, no heavy scene bottlenecks a lighter scene.
                     <br /><br />
                     What happens behind the scenes is as following:
                 </p>
                 <ul className="list-disc list-outside mb-10 px-8 leading-relaxed">
                     <li>
-                        each page/scene has its own JFrame window, with its own GLCanvas, and its own renderer (Let's assume a PhysicalRenderer)
+                        each window/scene has its own JFrame window, with its own GLCanvas, and its own renderer (Let's assume a PhysicalRenderer)
                     </li>
                     <li>
                         each renderer has its own FPS setting, which determines how many times per second the <code>display()</code> method is called (Frame cycles)
@@ -101,7 +101,7 @@ export default function CS304LabLearnMore() {
                         each renderer also implements the <code>GameLoop</code> interface, which has its own fixed physics cycle rate (500 cycles per second by default)
                     </li>
                     <li>
-                        when the page/scene is opened, both cycles start running in parallel, and a new LoopState class instance is initialized to keep track of accumulation time and last frame time
+                        when the window/scene is opened, both cycles start running in parallel, and a new LoopState class instance is initialized to keep track of accumulation time and last frame time
                     </li>
                     <li>
                         Inputs are registered via <code>InputHandler</code>'s bind method to bind inputs to <code>Action</code> instances, which are then processed in the physics cycle
