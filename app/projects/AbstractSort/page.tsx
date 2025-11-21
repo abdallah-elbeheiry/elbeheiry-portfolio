@@ -7,10 +7,10 @@ export default function NizamDeskLearnMore() {
             <h1 className="text-5xl font-bold text-blue-600 dark:text-purple-800 text-center pt-20 mb-10">
                 Teracura.AbstractSort
             </h1>
-            <div className="flex items-center justify-center loader mx-auto mb-6">
+            <div className="flex items-center justify-center loader mx-auto mb-6 dark:text-gray-300 text-gray-700">
                 <h2 className="text-2xl font-semibold mb-6 px-4">Project Overview:</h2>
             </div>
-            <div className="max-w-3xl mx-auto text-gray-900 dark:text-gray-100 transition-colors duration-500 px-4">
+            <div className="max-w-5xl mx-auto text-gray-900 dark:text-gray-100 transition-colors duration-500 px-4">
                 <p className="text-start mb-10 px-4">
                     A C# class library that provides a collection of abstract sorting algorithms using <strong>LINQ</strong>, allowing developers to easily implement and utilize various sorting techniques in their applications. <br /><br />
                     This library, as the name suggests, includes sorting standards that are... abstract, and a bit unusual, but that's the point of the project.<br /><br />
@@ -26,7 +26,7 @@ export default function NizamDeskLearnMore() {
 
             <AbstractSortDocumentation />
 
-            <div className="flex items-center w-5xl justify-center loader mx-auto mb-10 gap-5">
+            <div className="flex items-center w-5xl justify-center loader mx-auto pb-10 gap-5">
                 <Link href="/projects" >
                     <button className="mx-auto mt-10 px-6 py-3 bg-blue-600 dark:bg-purple-800 hover:bg-blue-700 dark:hover:bg-purple-900 text-white rounded-lg font-semibold transition-colors duration-300">
                         Back to Projects

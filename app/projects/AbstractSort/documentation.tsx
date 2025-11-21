@@ -219,11 +219,21 @@ var stack = (Stack<string>)myList.Sort(config);
 `;
 
 export default function AbstractSortDocumentation() {
-  return (
-    <div className="markdown-body p-8">
-      <ReactMarkdown remarkPlugins={[remarkGfm]}>
-        {markdownContent}
-      </ReactMarkdown>
-    </div>
-  );
+    return (
+        <div className="markdown-body p-8
+                bg-gray-50! dark:bg-gray-900!
+                text-gray-900! dark:text-gray-100!
+                [&_a]:text-blue-600! dark:[&_a]:text-purple-700!
+                [&_code]:bg-gray-200! dark:[&_code]:bg-gray-800! [&_code]:text-red-700! dark:[&_code]:text-red-400!
+                [&_pre]:bg-gray-200! dark:[&_pre]:bg-gray-800! [&_pre]:text-red-700! dark:[&_pre]:text-red-400!
+                [&_th]:bg-gray-300! dark:[&_th]:bg-gray-700!
+                [&_td]:bg-gray-50! dark:[&_td]:bg-gray-900!
+                [&_blockquote]:border-l-4 border-gray-300 dark:border-gray-700">
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                {markdownContent}
+            </ReactMarkdown>
+        </div>
+
+
+    );
 }

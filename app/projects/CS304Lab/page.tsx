@@ -119,6 +119,8 @@ export default function CS304LabLearnMore() {
 
                 <p className="mb-10 px-8 leading-relaxed">
                     Overall, this process is inspired from how Gdot's delta time and accumulation time works, as well as the game loop pattern used in many game engines, but I made it so there is no need to multiply everything physics related by delta time.
+                    <br /><br />
+                    
                 </p>
 
 

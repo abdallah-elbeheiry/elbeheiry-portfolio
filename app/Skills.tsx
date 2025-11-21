@@ -6,14 +6,14 @@ export default function Skills() {
             id="skills"
             className="flex flex-col items-center justify-center mt-20 text-center px-6 scroll-mt-32"
         >
-            <h2 className="text-3xl font-bold mb-6 text-blue-600 dark:text-purple-800">
+            <h2 className="text-3xl font-bold mb-6 text-blue-600 dark:text-purple-700">
                 My Skills
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-7 w-full max-w-8xl mb-10">
                 {/* .NET Card */}
-                <div className="bg-gray-300 dark:bg-gray-800 rounded-xl shadow-md flex flex-col items-center justify-start text-xl font-semibold p-6 text-center">
-                    <h3 className="text-2xl mb-2 text-blue-600 dark:text-purple-800">.NET</h3>
+                <div className="bg-gray-300 dark:bg-gray-700 rounded-xl shadow-md flex flex-col items-center justify-start text-xl font-semibold p-6 text-center">
+                    <h3 className="text-2xl mb-2 text-blue-600 dark:text-purple-600">.NET</h3>
                     <p className="text-base font-normal text-gray-700 dark:text-gray-200 mb-3">
                         Technologies and frameworks I frequently use:
                     </p>
@@ -27,8 +27,8 @@ export default function Skills() {
                 </div>
 
                 {/* Design Patterns Card */}
-                <div className="bg-gray-300 dark:bg-gray-800 rounded-xl shadow-md flex flex-col items-center justify-start text-xl font-semibold p-6 text-center">
-                    <h3 className="text-2xl mb-2 text-blue-600 dark:text-purple-800">Design Patterns</h3>
+                <div className="bg-gray-300 dark:bg-gray-700 rounded-xl shadow-md flex flex-col items-center justify-start text-xl font-semibold p-6 text-center">
+                    <h3 className="text-2xl mb-2 text-blue-600 dark:text-purple-600">Design Patterns</h3>
                     <p className="text-base font-normal text-gray-700 dark:text-gray-200 mb-3">
                         Experience with the following design patterns:
                     </p>
@@ -42,8 +42,8 @@ export default function Skills() {
                 </div>
 
                 {/* Other Technical Skills Card */}
-                <div className="bg-gray-300 dark:bg-gray-800 rounded-xl shadow-md flex flex-col items-center justify-start text-xl font-semibold p-6 text-center">
-                    <h3 className="text-2xl mb-2 text-blue-600 dark:text-purple-800">
+                <div className="bg-gray-300 dark:bg-gray-700 rounded-xl shadow-md flex flex-col items-center justify-start text-xl font-semibold p-6 text-center">
+                    <h3 className="text-2xl mb-2 text-blue-600 dark:text-purple-600">
                         Other Technical Skills
                     </h3>
                     <ul className="list-disc list-inside text-base font-normal text-gray-700 dark:text-gray-200 text-left space-y-1">
@@ -59,8 +59,8 @@ export default function Skills() {
                 </div>
 
                 {/* Soft Skills */}
-                <div className="bg-gray-300 dark:bg-gray-800 rounded-xl shadow-md flex flex-col items-center justify-start text-xl font-semibold p-6 text-center">
-                    <h3 className="text-2xl mb-2 text-blue-600 dark:text-purple-800">Soft Skills</h3>
+                <div className="bg-gray-300 dark:bg-gray-700 rounded-xl shadow-md flex flex-col items-center justify-start text-xl font-semibold p-6 text-center">
+                    <h3 className="text-2xl mb-2 text-blue-600 dark:text-purple-600">Soft Skills</h3>
                     <p className="text-base font-normal text-gray-700 dark:text-gray-200 mb-3">
                         Personal strengths and professional attributes:
                     </p>

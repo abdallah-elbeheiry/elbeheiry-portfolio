@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 transition-colors duration-500 ease-in-out">
       <div className="max-w-9xl mx-auto flex items-center justify-between h-20 px-4 sm:px-6">
-        <h1 className="text-4xl font-bold text-blue-600 dark:text-purple-700">A website</h1>
+        <h1 className="text-4xl font-bold text-blue-600 dark:text-purple-700">Abdallah's portfolio</h1>
 
         {/* Desktop Links */}
         <nav className="hidden sm:flex space-x-2 items-center text-gray-600 dark:text-gray-300 font-medium">

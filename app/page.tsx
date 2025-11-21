@@ -12,7 +12,7 @@ export default function Home() {
       <Projects />
       <div className="flex justify-center pb-10">
         <Link href="/projects">
-          <button className="w-7xl bg-blue-600 dark:bg-purple-800 hover:bg-blue-700 dark:hover:bg-purple-900 text-white py-2 px-4 rounded-lg font-semibold transition-colors duration-300">
+          <button className="w-7xl bg-blue-600 dark:bg-purple-700 hover:bg-blue-700 dark:hover:bg-purple-800 text-white py-2 px-4 rounded-lg font-semibold transition-colors duration-300">
             All projects
           </button>
         </Link>
