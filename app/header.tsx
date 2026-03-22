@@ -1,52 +1,144 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 import ThemeToggle from "../app/theme-toggle";
 
 const isProd = process.env.NODE_ENV === "production";
 const BASE_PATH = isProd ? "/elbeheiry-portfolio" : "";
 
+const navItems = [
+    { label: "Home", href: "#introduction" },
+    { label: "Skills", href: "#skills" },
+    { label: "Projects", href: "#projects" },
+    { label: "Contact", href: "#contact" },
+];
+
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const pathname = usePathname();
 
-  return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 transition-colors duration-500 ease-in-out">
-      <div className="max-w-9xl mx-auto flex items-center justify-between h-20 px-4 sm:px-6">
-        <h1 className="text-4xl font-bold text-blue-600 dark:text-purple-700">Abdallah's portfolio</h1>
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 10);
+        window.addEventListener("scroll", onScroll);
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
 
-        {/* Desktop Links */}
-        <nav className="hidden sm:flex space-x-2 items-center text-gray-600 dark:text-gray-300 font-medium">
-          <a href={`${BASE_PATH}/#introduction`} className="px-4 py-2 hover:bg-blue-100 dark:hover:bg-gray-700 rounded transition-all">Home</a>
-          <a href={`${BASE_PATH}/#skills`} className="px-4 py-2 hover:bg-blue-100 dark:hover:bg-gray-700 rounded transition-all">Skills</a>
-          <a href={`${BASE_PATH}/#projects`} className="px-4 py-2 hover:bg-blue-100 dark:hover:bg-gray-700 rounded transition-all">Projects</a>
-          <a href={`${BASE_PATH}/#contact`} className="px-4 py-2 hover:bg-blue-100 dark:hover:bg-gray-700 rounded transition-all">Contact</a>
-          <ThemeToggle />
-        </nav>
+    return (
+        <header
+            className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 backdrop-blur-xl
+        ${scrolled
+                ? "bg-white/90 dark:bg-gray-900/85 shadow-md border-b border-blue-200 dark:border-purple-500/30"
+                : "bg-white/70 dark:bg-gray-900/70"}`}
+        >
+            <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+                {/* Logo */}
+                <Link href="/" className="group">
+                    <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight
+            bg-gradient-to-r from-blue-600 to-blue-400
+            dark:from-purple-400 dark:to-purple-600
+            bg-clip-text text-transparent
+            drop-shadow-[0_0_4px_rgba(59,130,246,0.35)]
+            dark:drop-shadow-[0_0_6px_rgba(168,85,247,0.35)]
+            group-hover:scale-105 transition-transform">
+                        Abdallah.dev
+                    </h1>
+                </Link>
 
-        {/* Mobile Hamburger */}
-        <div className="sm:hidden">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition"
-          >
-            {/* Hamburger Icon */}
-            <svg className="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
-            </svg>
-          </button>
-        </div>
-      </div>
+                {/* Desktop Nav */}
+                <nav className="hidden sm:flex items-center gap-2">
+                    {navItems.map((item) => {
+                        const href = `${BASE_PATH}/${item.href}`;
+                        const active = pathname === href;
+                        return (
+                            <Link
+                                key={item.href}
+                                href={href}
+                                className={`relative px-4 py-2 rounded-xl font-medium transition-all duration-300
+                  ${active
+                                    ? "text-white bg-blue-500/90 dark:bg-purple-600/90 shadow-[0_0_10px_rgba(59,130,246,0.25)] dark:shadow-[0_0_12px_rgba(168,85,247,0.35)]"
+                                    : "text-gray-700 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-purple-500/15"}`}
+                            >
+                                {item.label}
+                                {active && (
+                                    <motion.span
+                                        layoutId="underline"
+                                        className="absolute left-3 right-3 -bottom-1 h-[2px] bg-blue-500 dark:bg-purple-400 rounded-full"
+                                    />
+                                )}
+                            </Link>
+                        );
+                    })}
 
-      {/* Mobile Menu (upon opening hamburger)*/}
-      <div className={`sm:hidden transition-all duration-300 ${isOpen ? "max-h-screen" : "max-h-0 overflow-hidden"}`}>
-        <div className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 flex flex-col">
-          <a href="#introduction" className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-gray-700">Home</a>
-          <a href="#skills" className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-gray-700">Skills</a>
-          <a href="#projects" className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-gray-700">Projects</a>
-          <a href="#contact" className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-gray-700">Contact</a>
-          <div className="px-4 py-2"><ThemeToggle /></div>
-        </div>
-      </div>
-    </header>
-  );
+                    {/* CTA Button */}
+                    <Link
+                        href="#contact"
+                        className="ml-3 px-5 py-2 rounded-2xl font-semibold text-white
+              bg-blue-600 hover:bg-blue-700
+              dark:bg-purple-600 dark:hover:bg-purple-700
+              shadow-[0_0_12px_rgba(59,130,246,0.25)] dark:shadow-[0_0_16px_rgba(168,85,247,0.35)]
+              hover:scale-105 transition-all"
+                    >
+                        Hire Me
+                    </Link>
+
+                    <div className="ml-3">
+                        <ThemeToggle />
+                    </div>
+                </nav>
+
+                {/* Mobile Button */}
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="sm:hidden p-2 rounded-xl hover:bg-blue-100 dark:hover:bg-purple-500/20 transition"
+                >
+                    {isOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+            </div>
+
+            {/* Mobile Menu */}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        className="sm:hidden bg-white dark:bg-gray-900 border-t border-blue-200 dark:border-purple-500/30"
+                    >
+                        <div className="flex flex-col px-6 py-5 gap-2">
+                            {navItems.map((item) => {
+                                const href = `${BASE_PATH}/${item.href}`;
+                                return (
+                                    <Link
+                                        key={item.href}
+                                        href={href}
+                                        onClick={() => setIsOpen(false)}
+                                        className="px-4 py-3 rounded-xl text-gray-700 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-purple-500/15 transition"
+                                    >
+                                        {item.label}
+                                    </Link>
+                                );
+                            })}
+
+                            <Link
+                                href="#contact"
+                                onClick={() => setIsOpen(false)}
+                                className="mt-2 px-4 py-3 rounded-xl text-center font-semibold text-white bg-blue-600 dark:bg-purple-600 shadow"
+                            >
+                                Hire Me
+                            </Link>
+
+                            <div className="pt-3 border-t border-blue-200 dark:border-purple-500/30 flex justify-center">
+                                <ThemeToggle />
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </header>
+    );
 }

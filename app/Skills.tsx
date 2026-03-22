@@ -1,79 +1,125 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { Server, Layers3, Globe, Brain } from "lucide-react";
+
+const categories = [
+    {
+        title: "Backend Engineering",
+        icon: Server,
+        description: "Core backend technologies and platform experience.",
+        skills: [
+            "C# / .NET (ASP.NET Core MVC + Blazor)",
+            "Entity Framework Core + LINQ",
+            "RESTful API design",
+            "Authentication (JWT / OAuth)",
+            "SQL Server, PostgreSQL, SQLite",
+            "Async / await + concurrency"
+        ]
+    },
+    {
+        title: "Architecture & Patterns",
+        icon: Layers3,
+        description: "Design principles and structural decision-making.",
+        skills: [
+            "SOLID principles",
+            "Clean Architecture basics",
+            "MVC / MVVM",
+            "Singleton, Factory, Builder",
+            "Dependency Injection & IoC",
+            "Test-driven development (xUnit)"
+        ]
+    },
+    {
+        title: "Frontend & Web",
+        icon: Globe,
+        description: "Modern web technologies and UI foundations.",
+        skills: [
+            "React fundamentals",
+            "Next.js App Router",
+            "Tailwind CSS",
+            "Component-based architecture",
+            "Client / Server rendering concepts"
+        ]
+    },
+    {
+        title: "Foundations & Professional",
+        icon: Brain,
+        description: "Core CS knowledge and professional capabilities.",
+        skills: [
+            "Data structures & algorithms",
+            "Discrete math, Linear algebra, Calculus",
+            "Git workflows",
+            "Analytical problem-solving",
+            "Clear technical communication",
+            "Time management & adaptability"
+        ]
+    }
+];
+
 export default function Skills() {
     return (
         <section
             id="skills"
-            className="flex flex-col items-center justify-center mt-20 text-center px-6 scroll-mt-32"
+            className="relative flex flex-col items-center justify-center mt-40 px-6 scroll-mt-32"
         >
-            <h2 className="text-3xl font-bold mb-6 text-blue-600 dark:text-purple-700">
-                My Skills
+            {/* dramatic ambient glow */}
+            <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.15),transparent_60%)] dark:bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.18),transparent_60%)]" />
+
+            <h2 className="text-5xl font-extrabold mb-16 bg-gradient-to-r from-blue-600 to-blue-400 dark:from-purple-400 dark:to-purple-600 bg-clip-text text-transparent tracking-tight">
+                Technical Profile
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-7 w-full max-w-8xl mb-10">
-                {/* .NET Card */}
-                <div className="bg-gray-300 dark:bg-gray-700 rounded-xl shadow-md flex flex-col items-center justify-start text-xl font-semibold p-6 text-center">
-                    <h3 className="text-2xl mb-2 text-blue-600 dark:text-purple-600">.NET</h3>
-                    <p className="text-base font-normal text-gray-700 dark:text-gray-200 mb-3">
-                        Technologies and frameworks I frequently use:
-                    </p>
-                    <ul className="list-disc list-inside text-base font-normal text-gray-700 dark:text-gray-200 text-left space-y-1">
-                        <li>Proficient in C# and .NET framework for building robust web applications using ASP.NET Core (MVC and Blazor).</li>
-                        <li>Experienced with Entity Framework Core and LINQ for efficient data access and management.</li>
-                        <li>Familiar with .NET MAUI for developing cross-platform applications.</li>
-                        <li>Skilled in asynchronous programming and task-based concurrency.</li>
-                        <li>Understanding of dependency injection and inversion of control principles.</li>
-                    </ul>
-                </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-7xl">
+                {categories.map((category, index) => {
+                    const Icon = category.icon;
 
-                {/* Design Patterns Card */}
-                <div className="bg-gray-300 dark:bg-gray-700 rounded-xl shadow-md flex flex-col items-center justify-start text-xl font-semibold p-6 text-center">
-                    <h3 className="text-2xl mb-2 text-blue-600 dark:text-purple-600">Design Patterns</h3>
-                    <p className="text-base font-normal text-gray-700 dark:text-gray-200 mb-3">
-                        Experience with the following design patterns:
-                    </p>
-                    <ul className="list-disc list-inside text-base font-normal text-gray-700 dark:text-gray-200 text-left space-y-1">
-                        <li>Singleton</li>
-                        <li>Factory Method</li>
-                        <li>Builder Pattern</li>
-                        <li>Model-View-ViewModel (MVVM)</li>
-                        <li>Model-View-Controller (MVC)</li>
-                    </ul>
-                </div>
+                    return (
+                        <motion.div
+                            key={category.title}
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            whileHover={{ y: -8 }}
+                            className="group relative rounded-3xl p-[1px] bg-gradient-to-br from-blue-400/40 via-transparent to-blue-600/40 dark:from-purple-500/40 dark:to-purple-700/40"
+                        >
+                            <div className="relative h-full rounded-3xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500">
+                                {/* spotlight hover glow */}
+                                <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-blue-200/20 to-blue-500/10 dark:from-purple-500/20 dark:to-purple-800/10 blur-2xl" />
 
-                {/* Other Technical Skills Card */}
-                <div className="bg-gray-300 dark:bg-gray-700 rounded-xl shadow-md flex flex-col items-center justify-start text-xl font-semibold p-6 text-center">
-                    <h3 className="text-2xl mb-2 text-blue-600 dark:text-purple-600">
-                        Other Technical Skills
-                    </h3>
-                    <ul className="list-disc list-inside text-base font-normal text-gray-700 dark:text-gray-200 text-left space-y-1">
-                        <li>Proficient with xUnit for unit testing.</li>
-                        <li>Experienced with Git and version control workflows.</li>
-                        <li>Knowledgeable in asynchronous programming and concurrency patterns.</li>
-                        <li>Understanding of RESTful APIs and client-server communication.</li>
-                        <li>Basic experience with React and Next.js.</li>
-                        <li>Strong grasp of OOP, SOLID principles, and data structures.</li>
-                        <li>Familiar with SQL Server and SQLite database design.</li>
-                        <li>Solid foundation in mathematics (calculus, linear algebra, discrete math, numerical analysis, ODEs).</li>
-                    </ul>
-                </div>
+                                <div className="relative z-10 flex flex-col gap-6">
+                                    <div className="flex items-center gap-4">
+                                        <div className="p-3 rounded-xl bg-blue-100 dark:bg-purple-500/20">
+                                            <Icon className="text-blue-600 dark:text-purple-400" size={22} />
+                                        </div>
+                                        <div>
+                                            <h3 className="text-2xl font-semibold text-blue-700 dark:text-purple-300">
+                                                {category.title}
+                                            </h3>
+                                            <p className="text-sm text-gray-600 dark:text-gray-400">
+                                                {category.description}
+                                            </p>
+                                        </div>
+                                    </div>
 
-                {/* Soft Skills */}
-                <div className="bg-gray-300 dark:bg-gray-700 rounded-xl shadow-md flex flex-col items-center justify-start text-xl font-semibold p-6 text-center">
-                    <h3 className="text-2xl mb-2 text-blue-600 dark:text-purple-600">Soft Skills</h3>
-                    <p className="text-base font-normal text-gray-700 dark:text-gray-200 mb-3">
-                        Personal strengths and professional attributes:
-                    </p>
-                    <ul className="list-disc list-inside text-base font-normal text-gray-700 dark:text-gray-200 text-left space-y-1">
-                        <li>Good communication skills.</li>
-                        <li>Fast learning and adaptability.</li>
-                        <li>Strong passion for software engineering and continuous learning.</li>
-                        <li>Good stress management under pressure.</li>
-                        <li>Effective time management and organization.</li>
-                        <li>Strong analytical thinking and problem-solving skills.</li>
-                    </ul>
-                </div>
-
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                        {category.skills.map((skill) => (
+                                            <motion.div
+                                                key={skill}
+                                                whileHover={{ scale: 1.03 }}
+                                                whileTap={{ scale: 0.97 }}
+                                                className="relative px-4 py-3 rounded-xl bg-blue-50/60 dark:bg-purple-500/10 border border-blue-100 dark:border-purple-500/30 text-sm text-gray-800 dark:text-gray-200 transition-all"
+                                            >
+                                                {skill}
+                                            </motion.div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    );
+                })}
             </div>
         </section>
     );

@@ -1,159 +1,146 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function OnnetLearnMore() {
     return (
-        <div className="bg-gray-50 dark:bg-gray-900 transition-colors duration-500 min-h-screen">
-            <h1 className="text-5xl font-bold text-blue-600 dark:text-purple-800 text-center pt-20 mb-10">
+        <div className="bg-gray-50 dark:bg-gray-900 transition-colors duration-500 min-h-screen py-16 px-4">
+            {/* Page Header */}
+            <motion.h1
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-5xl sm:text-6xl font-bold text-center text-blue-600 dark:text-purple-800 mb-10 mt-10"
+            >
                 Onnet
-            </h1>
+            </motion.h1>
 
-            <div className="flex justify-center items-center mx-auto mb-6 text-gray-900 dark:text-gray-100 px-4">
-                <h2 className="text-2xl font-semibold">
-                    Project Analysis & Technical Breakdown
-                </h2>
-            </div>
+            <motion.h2
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-2xl font-semibold text-center text-gray-900 dark:text-gray-100 mb-10"
+            >
+                Project Analysis & Technical Breakdown
+            </motion.h2>
 
-            <div className="max-w-5xl mx-auto text-gray-900 dark:text-gray-100 px-4">
+            {/* Content Container */}
+            <div className="max-w-5xl mx-auto text-gray-900 dark:text-gray-100 space-y-12">
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <p className="leading-relaxed">
+                        <strong>Onnet</strong> is a <strong>team-based student game project</strong> developed for <strong>CS304 – Computer Graphics</strong>, built on a <strong>custom Java OpenGL (JOGL) game engine</strong>.
+                        <br /><br />
+                        As <strong>Development Lead</strong>, I was responsible for engine architecture, physics system, renderer lifecycle, and performance-critical systems, while managing the <strong>GitHub repository</strong> and coordinating merges.
+                    </p>
+                </motion.div>
 
-                <p className="mb-10 leading-relaxed">
-                    <strong>Onnet</strong> is a <strong>team-based student game project</strong> developed for
-                    <strong> CS304 – Computer Graphics</strong>, built on top of a
-                    <strong> custom Java OpenGL (JOGL) game engine</strong>.
-                    <br/><br/>
-                    The project was developed by a small team, where I acted as the
-                    <strong> Development Lead</strong>. I was responsible for the engine architecture,
-                    physics system, renderer lifecycle, and most performance-critical systems.
-                    Additionally, I managed the <strong>GitHub repository</strong>, enforced a
-                    <strong> branching strategy</strong>, reviewed pull requests, and coordinated merges
-                    to keep the codebase stable throughout development.
-                </p>
+                <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <h3 className="text-2xl font-semibold mb-4">Project Goals</h3>
+                    <ul className="list-disc list-outside pl-8 space-y-2 leading-relaxed">
+                        <li>Designing a <strong>reusable and extensible game engine</strong></li>
+                        <li>Understanding <strong>OpenGL rendering pipelines</strong> via JOGL</li>
+                        <li>Exploring <strong>performance optimization</strong> in desktop Java graphics</li>
+                        <li>Practicing <strong>team-based software development</strong> with real workflows</li>
+                    </ul>
+                </motion.div>
 
-                <h3 className="text-2xl font-semibold mt-6 mb-4">
-                    Project Goals
-                </h3>
+                <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <h3 className="text-2xl font-semibold mb-4">Engine Architecture & Game Loop</h3>
+                    <p className="leading-relaxed mb-4">
+                        Onnet uses a <strong>single-window, single-canvas architecture</strong> with decoupled physics (500 Hz) and rendering (60 FPS) cycles to ensure stable, deterministic performance.
+                    </p>
+                    <p className="leading-relaxed">
+                        The physics engine includes a custom collision system with <strong>neighbor-pattern-like detection</strong> and <strong>Minimum Translation Vector (MTV)</strong> resolution.
+                    </p>
+                </motion.div>
 
-                <p className="mb-10 leading-relaxed">
-                    While the project originated as a university CS304 assignment, the primary goal went far
-                    beyond “making a game”. The focus was on:
-                </p>
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <h3 className="text-2xl font-semibold mb-4">Team & Leadership</h3>
+                    <ul className="list-disc list-outside pl-8 space-y-2 leading-relaxed">
+                        <li>Defined core engine architecture and physics system</li>
+                        <li>Managed GitHub issues, pull requests, and branching policies</li>
+                        <li>Supported teammates by unblocking technical challenges</li>
+                        <li>Maintained architectural consistency across the codebase</li>
+                        <li>Planned project vision and task breakdown for parallel development</li>
+                    </ul>
+                </motion.div>
 
-                <ul className="list-disc list-outside mb-10 px-8 leading-relaxed">
-                    <li>Designing a <strong>reusable and extensible game engine</strong></li>
-                    <li>Understanding <strong>OpenGL rendering pipelines</strong> via JOGL</li>
-                    <li>Exploring <strong>performance optimization</strong> in desktop Java graphics</li>
-                    <li>Practicing <strong>team-based software development</strong> with real workflows</li>
-                </ul>
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <h3 className="text-2xl font-semibold mb-4">What I Learned</h3>
+                    <ul className="list-disc list-outside pl-8 space-y-2 leading-relaxed">
+                        <li>Engine-level decisions affect performance</li>
+                        <li>Renderer and canvas management in OpenGL</li>
+                        <li>Leading a technical project effectively</li>
+                        <li>Project management and GitHub workflows</li>
+                        <li>Delivering under tight deadlines</li>
+                    </ul>
+                </motion.div>
 
-                <h3 className="text-2xl font-semibold mt-6 mb-4">
-                    Team & Leadership
-                </h3>
+                {/* YouTube Embed */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="flex justify-center mt-12"
+                >
+                    <div className="w-full max-w-3xl aspect-video rounded-xl overflow-hidden shadow-lg">
+                        <iframe
+                            src="https://www.youtube.com/embed/-J24kzDO9qU?si=r7re9-EAgH9bMhE5"
+                            title="Onnet Demo Video"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="w-full h-full"
+                        />
+                    </div>
+                </motion.div>
 
-                <p className="mb-10 leading-relaxed">
-                    As Development Lead, I defined the technical direction of the project and ensured
-                    that multiple contributors could work in parallel without breaking core systems.
-                    <br/><br/>
-                    This included:
-                </p>
-
-                <ul className="list-disc list-outside mb-10 px-8 leading-relaxed">
-                    <li>Designing and implementing the <strong>core engine architecture</strong></li>
-                    <li>Owning the <strong>physics engine and collision system</strong></li>
-                    <li>Managing <strong>GitHub issues</strong> and pull request reviews</li>
-                    <li>Enforcing a <strong>branching policy</strong> to isolate features and fixes</li>
-                    <li>Supporting teammates by unblocking technical issues and reviewing code</li>
-                    <li>Ensuring <strong>architectural consistency</strong> between all team members to unify code structure
-                        throughout the project
-                    </li>
-                    <li>Owning the <strong>Project vision</strong> and splitting big tasks into smaller micro tasks to
-                        ensure parallel development
-                    </li>
-                </ul>
-
-                <h3 className="text-2xl font-semibold mt-6 mb-4">
-                    Engine Architecture Overview
-                </h3>
-
-                <p className="mb-10 leading-relaxed">
-                    Onnet is built around a <strong>single-window, single-canvas architecture</strong>.
-                    Instead of creating multiple OpenGL canvases, the engine swaps <strong>renderers</strong> on the
-                    same <code>GLJPanel</code>, significantly reducing
-                    overhead and improving performance.
-
-                    Note: Renderers are classes used throughout the engine that
-                    implement <code>GLEventListener</code> and <code>GameLoop</code>, they handle all drawing logic, and
-                    within them the physics logic is called from other classes
-                </p>
-
-                <h3 className="text-2xl font-semibold mt-6 mb-4">
-                    Game Loop & Performance Design
-                </h3>
-
-                <p className="mb-10 leading-relaxed">
-                    The engine runs two decoupled cycles:
-                </p>
-
-                <ul className="list-disc list-outside mb-10 px-8 leading-relaxed">
-                    <li>
-                        <strong>Physics Cycle</strong>: Runs at a fixed rate of
-                        <strong> 500 updates per second</strong>, handling movement, collisions, and input
-                        processing.
-                    </li>
-                    <li>
-                        <strong>Rendering Cycle</strong>: Runs at a 60 FPS rate and is fully decoupled from
-                        physics to avoid instability under heavy rendering load.
-                    </li>
-                </ul>
-
-                <p className="mb-10 leading-relaxed">
-                    This approach ensures deterministic physics behavior even when frame rate fluctuates.
-                    It is inspired by traditional game engine loop patterns and accumulation-based timing,
-                    while avoiding the need to multiply physics values by delta time.
-                </p>
-
-                <h3 className="text-2xl font-semibold mt-6 mb-4">
-                    Collision System
-                </h3>
-
-                <p className="mb-10 leading-relaxed">
-                    The physics engine includes a custom collision system supporting multiple shapes
-                    using a <strong>neighbor-pattern-like approach</strong> to handle all intersection
-                    permutations.
-                    <br/><br/>
-                    When penetration occurs, collisions are resolved using
-                    <strong> Minimum Translation Vector (MTV)</strong> calculations to safely separate
-                    objects without jitter or instability.
-                </p>
-
-                <h3 className="text-2xl font-semibold mt-6 mb-4">
-                    What I Learned
-                </h3>
-
-                <ul className="list-disc list-outside mb-10 px-8 leading-relaxed">
-                    <li>How engine-level decisions directly affect performance</li>
-                    <li>Why renderer and canvas management matters in OpenGL</li>
-                    <li>How to lead a technical project, not just write code</li>
-                    <li>How real Project management prevent chaos in team projects</li>
-                    <li>How merging, branching, rebasing etc. works in github</li>
-                    <li>How to work under a tight time window of 8 days and deliver</li>
-                </ul>
-
-            </div>
-
-            <div className="max-w-5xl mx-auto text-gray-900 dark:text-gray-100">
-                <div className="flex items-center justify-center pb-10 gap-5">
+                {/* Navigation Buttons */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="flex justify-center gap-5 mt-16"
+                >
                     <Link href="/projects">
-                        <button
-                            className="mt-10 px-6 py-3 bg-blue-600 dark:bg-purple-800 hover:bg-blue-700 dark:hover:bg-purple-900 text-white rounded-lg font-semibold transition-colors duration-300">
+                        <button className="px-6 py-3 bg-blue-600 dark:bg-purple-800 hover:bg-blue-700 dark:hover:bg-purple-900 text-white rounded-lg font-semibold transition-colors duration-300">
                             Back to Projects
                         </button>
                     </Link>
                     <Link href="/">
-                        <button
-                            className="mt-10 px-6 py-3 bg-blue-600 dark:bg-purple-800 hover:bg-blue-700 dark:hover:bg-purple-900 text-white rounded-lg font-semibold transition-colors duration-300">
+                        <button className="px-6 py-3 bg-blue-600 dark:bg-purple-800 hover:bg-blue-700 dark:hover:bg-purple-900 text-white rounded-lg font-semibold transition-colors duration-300">
                             Back to Home
                         </button>
                     </Link>
-                </div>
+                </motion.div>
             </div>
         </div>
     );
