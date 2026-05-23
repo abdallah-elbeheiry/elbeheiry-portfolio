@@ -14,9 +14,9 @@ const CV_HREF = `${BASE_PATH}/${encodeURIComponent(CV_FILE_NAME)}`;
 const CONTACT_EMAIL = "abdallahelbhary39@gmail.com";
 
 const navItems = [
-    { label: "Home", href: "/#introduction" },
-    { label: "Strengths", href: "/#skills" },
-    { label: "Projects", href: "/#projects" },
+    { label: "Home", href: "#introduction" },
+    { label: "Strengths", href: "#skills" },
+    { label: "Projects", href: "#projects" },
     { label: "Download CV", href: CV_HREF, external: true, download: "Abdallah-Elbeheiry-CV.pdf" },
 ];
 
