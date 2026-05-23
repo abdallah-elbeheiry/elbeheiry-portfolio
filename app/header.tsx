@@ -14,9 +14,9 @@ const CV_HREF = `${BASE_PATH}/${encodeURIComponent(CV_FILE_NAME)}`;
 const CONTACT_EMAIL = "abdallahelbhary39@gmail.com";
 
 const navItems = [
-    { label: "Home", href: "#introduction" },
-    { label: "Strengths", href: "#skills" },
-    { label: "Projects", href: "#projects" },
+    { label: "Home", href: "/#introduction" },
+    { label: "Strengths", href: "/#skills" },
+    { label: "Projects", href: "/#projects" },
     { label: "Download CV", href: CV_HREF, external: true, download: "Abdallah-Elbeheiry-CV.pdf" },
 ];
 
@@ -55,7 +55,9 @@ export default function Header() {
                 {/* Desktop Nav */}
                 <nav className="hidden sm:flex items-center gap-2">
                     {navItems.map((item) => {
-                        const href = item.href.startsWith("#") ? `${BASE_PATH}/${item.href}` : item.href;
+                        const href = item.href.startsWith("/") && item.href.includes("#") 
+                            ? `${BASE_PATH}${item.href}` 
+                            : item.href;
                         const active = !item.external && pathname === href;
 
                         if (item.external) {
@@ -128,7 +130,9 @@ export default function Header() {
                     >
                         <div className="flex flex-col px-6 py-5 gap-2">
                             {navItems.map((item) => {
-                                const href = item.href.startsWith("#") ? `${BASE_PATH}/${item.href}` : item.href;
+                                const href = item.href.startsWith("/") && item.href.includes("#") 
+                                    ? `${BASE_PATH}${item.href}` 
+                                    : item.href;
 
                                 if (item.external) {
                                     return (
