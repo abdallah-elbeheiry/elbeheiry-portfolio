@@ -29,6 +29,8 @@ export default function ThemeToggle() {
     }
   };
 
+  const iconPrefix = process.env.NODE_ENV === "production" ? "/elbeheiry-portfolio" : "";
+
   return (
     <button
       id="theme-toggle"
@@ -37,7 +39,7 @@ export default function ThemeToggle() {
     >
       <Image
         id="theme-icon"
-        src={isDark ? "/theme-icon-dark.svg" : "/theme-icon.svg"}
+        src={isDark ? `${iconPrefix}/theme-icon-dark.svg` : `${iconPrefix}/theme-icon.svg`}
         alt="Toggle Theme"
         width={48}
         height={48}

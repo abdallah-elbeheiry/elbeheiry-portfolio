@@ -52,7 +52,7 @@ export default function Header() {
                 <nav className="hidden sm:flex items-center gap-2">
                     {navItems.map((item) => {
                         const href = item.href;
-                        const active = !item.external && pathname === href;
+                        const active = !item.external && (pathname === href || (pathname === "/" && href === "/#introduction"));
 
                         if (item.external) {
                             return (
