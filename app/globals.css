@@ -38,4 +38,57 @@ body {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+* {
+  min-width: 0;
+}
+
+.project-card-frame::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 1.45rem;
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.34) 28%,
+    transparent 44%
+  );
+  opacity: 0;
+  transform: translateX(-120%);
+  transition: opacity 220ms ease;
+  z-index: 1;
+}
+
+.project-card-frame:hover::before {
+  animation: project-card-sheen 1100ms ease forwards;
+  opacity: 1;
+}
+
+.project-art-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 25% 20%, rgba(255, 255, 255, 0.34), transparent 28%),
+    radial-gradient(circle at 75% 80%, rgba(255, 255, 255, 0.22), transparent 30%);
+  mix-blend-mode: screen;
+}
+
+@keyframes project-card-sheen {
+  from {
+    transform: translateX(-120%);
+  }
+
+  to {
+    transform: translateX(120%);
+  }
 }

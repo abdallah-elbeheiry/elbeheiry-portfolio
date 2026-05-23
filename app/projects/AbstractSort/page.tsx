@@ -1,44 +1,51 @@
 import Link from "next/link";
 import AbstractSortDocumentation from "./documentation";
 
-export default function NizamDeskLearnMore() {
+export default function AbstractSortPage() {
     return (
-        <div className="bg-gray-50 dark:bg-gray-900 transition-colors duration-500 ease-in-out min-h-screen">
-            <h1 className="text-5xl font-bold text-blue-600 dark:text-purple-800 text-center pt-20 mb-10">
-                Teracura.AbstractSort
-            </h1>
-            <div className="flex items-center justify-center loader mx-auto mb-6 dark:text-gray-300 text-gray-700">
-                <h2 className="text-2xl font-semibold mb-6 px-4">Project Overview:</h2>
-            </div>
-            <div className="max-w-5xl mx-auto text-gray-900 dark:text-gray-100 transition-colors duration-500 px-4">
-                <p className="text-start mb-10 px-4">
-                    A C# class library that provides a collection of abstract sorting algorithms using <strong>LINQ</strong>, allowing developers to easily implement and utilize various sorting techniques in their applications. <br /><br />
-                    This library, as the name suggests, includes sorting standards that are... abstract, and a bit unusual, but that's the point of the project.<br /><br />
-                    It has my first written <strong>documentation</strong>, my first real implementation of the <strong>builder</strong> pattern, and my first <strong>unit tests</strong> using <strong>xUnit</strong> as well as my first attempt at doing git branching.<br /><br />
-                    Some features include default sorting in this class library using a <strong>custom comparer</strong>, with the capability of sorting objects of different types in the same <strong>IEnumerable</strong>, sorting by version string, and more.<br /><br />
-                    It is also made to be highly customizable, depending on the configuration you make, you can customize the behavior so it fits your needs for example: <br /><br />
-                    want the sorting to return the result while keeping the original IEnumerable in place? you can! want it to sort in descending order? you can! want it to ignore case sensitivity? you can! want it to not return a copy and instead edit the IEnumerable in place? you can! want sorting via string reflection? you can! Lambda expressions? you can! want to sort objects inside objects inside even more objects? you can! want sorting based on more than one standard? you also can! and more<br /><br />
-                    In this project I have learned unit testing, TDD (Test Driven Development), designing for extensibility and reusability, and how to write proper documentation. aswell as writing a class library that extends upon existing classes in C# (IEnumerable in particular) and learned about generics in general!<br /><br />
-                    It's some of the most fun I've had in a project ever, the MVP is done but my ambitions go way beyond what's already made.
+        <div className="min-h-screen bg-gray-50 transition-colors duration-500 ease-in-out dark:bg-gray-900">
+            <div className="mx-auto max-w-5xl px-6 pb-16 pt-24 text-gray-900 dark:text-gray-100">
+                <p className="text-sm font-semibold uppercase tracking-[0.28em] text-blue-600 dark:text-purple-400">
+                    Project notes
                 </p>
+                <h1 className="mt-4 text-5xl font-black tracking-tight text-gray-950 dark:text-white">
+                    Teracura.AbstractSort
+                </h1>
+                <p className="mt-5 max-w-3xl text-lg leading-8 text-gray-700 dark:text-gray-300">
+                    This project shows how I think when I&apos;m building something reusable: define the problem clearly,
+                    add tests, document the behavior, and keep the design extensible instead of fragile.
+                </p>
+
+                <div className="mt-10 grid gap-4 rounded-3xl border border-blue-100 bg-white/85 p-7 shadow-sm backdrop-blur dark:border-purple-500/20 dark:bg-gray-900/80">
+                    <p className="leading-relaxed">
+                        AbstractSort was where I proved I could turn a small idea into a polished C# library. I used it to
+                        practice builder-style configuration, custom comparers, documentation, and unit tests while getting
+                        comfortable with extensibility and generic design.
+                    </p>
+
+                    <p className="leading-relaxed">
+                        The broader signal is simple: I like building things that are reusable, predictable, and well thought
+                        out. That matters to me more than making a one-off demo look impressive.
+                    </p>
+                </div>
+
+                <AbstractSortDocumentation />
+
+                <div className="mt-10 flex flex-wrap justify-center gap-4">
+                    <Link
+                        href="/projects"
+                        className="rounded-2xl bg-blue-600 px-6 py-3 font-semibold text-white transition-transform hover:scale-105 hover:bg-blue-700 dark:bg-purple-600 dark:hover:bg-purple-700"
+                    >
+                        Back to projects
+                    </Link>
+                    <Link
+                        href="/"
+                        className="rounded-2xl border border-blue-200 bg-white/80 px-6 py-3 font-semibold text-blue-700 transition-transform hover:scale-105 hover:bg-blue-50 dark:border-purple-500/20 dark:bg-gray-900/75 dark:text-purple-300 dark:hover:bg-purple-500/10"
+                    >
+                        Back to home
+                    </Link>
+                </div>
             </div>
-
-
-            <AbstractSortDocumentation />
-
-            <div className="flex items-center w-5xl justify-center loader mx-auto pb-10 gap-5">
-                <Link href="/projects" >
-                    <button className="mx-auto mt-10 px-6 py-3 bg-blue-600 dark:bg-purple-800 hover:bg-blue-700 dark:hover:bg-purple-900 text-white rounded-lg font-semibold transition-colors duration-300">
-                        Back to Projects
-                    </button>
-                </Link>
-                <Link href="/" >
-                    <button className="mx-auto mt-10 px-6 py-3 bg-blue-600 dark:bg-purple-800 hover:bg-blue-700 dark:hover:bg-purple-900 text-white rounded-lg font-semibold transition-colors duration-300">
-                        Back to Home
-                    </button>
-                </Link>
-            </div>
-
         </div>
     );
 }

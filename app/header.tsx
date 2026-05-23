@@ -9,12 +9,15 @@ import ThemeToggle from "../app/theme-toggle";
 
 const isProd = process.env.NODE_ENV === "production";
 const BASE_PATH = isProd ? "/elbeheiry-portfolio" : "";
+const CV_FILE_NAME = "elbeheiry CV new.pdf";
+const CV_HREF = `${BASE_PATH}/${encodeURIComponent(CV_FILE_NAME)}`;
+const CONTACT_EMAIL = "abdallahelbhary39@gmail.com";
 
 const navItems = [
     { label: "Home", href: "#introduction" },
-    { label: "Skills", href: "#skills" },
+    { label: "Strengths", href: "#skills" },
     { label: "Projects", href: "#projects" },
-    { label: "Contact", href: "#contact" },
+    { label: "Download CV", href: CV_HREF, external: true, download: "Abdallah-Elbeheiry-CV.pdf" },
 ];
 
 export default function Header() {
@@ -45,15 +48,29 @@ export default function Header() {
             drop-shadow-[0_0_4px_rgba(59,130,246,0.35)]
             dark:drop-shadow-[0_0_6px_rgba(168,85,247,0.35)]
             group-hover:scale-105 transition-transform">
-                        Abdallah.dev
+                        Abdallah Elbeheiry
                     </h1>
                 </Link>
 
                 {/* Desktop Nav */}
                 <nav className="hidden sm:flex items-center gap-2">
                     {navItems.map((item) => {
-                        const href = `${BASE_PATH}/${item.href}`;
-                        const active = pathname === href;
+                        const href = item.href.startsWith("#") ? `${BASE_PATH}/${item.href}` : item.href;
+                        const active = !item.external && pathname === href;
+
+                        if (item.external) {
+                            return (
+                                <a
+                                    key={item.label}
+                                    href={href}
+                                    download={item.download}
+                                    className="relative px-4 py-2 rounded-xl font-medium text-gray-700 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-purple-500/15 transition-all duration-300"
+                                >
+                                    {item.label}
+                                </a>
+                            );
+                        }
+
                         return (
                             <Link
                                 key={item.href}
@@ -75,8 +92,8 @@ export default function Header() {
                     })}
 
                     {/* CTA Button */}
-                    <Link
-                        href="#contact"
+                    <a
+                        href={`mailto:${CONTACT_EMAIL}`}
                         className="ml-3 px-5 py-2 rounded-2xl font-semibold text-white
               bg-blue-600 hover:bg-blue-700
               dark:bg-purple-600 dark:hover:bg-purple-700
@@ -84,7 +101,7 @@ export default function Header() {
               hover:scale-105 transition-all"
                     >
                         Hire Me
-                    </Link>
+                    </a>
 
                     <div className="ml-3">
                         <ThemeToggle />
@@ -111,7 +128,22 @@ export default function Header() {
                     >
                         <div className="flex flex-col px-6 py-5 gap-2">
                             {navItems.map((item) => {
-                                const href = `${BASE_PATH}/${item.href}`;
+                                const href = item.href.startsWith("#") ? `${BASE_PATH}/${item.href}` : item.href;
+
+                                if (item.external) {
+                                    return (
+                                        <a
+                                            key={item.label}
+                                            href={href}
+                                            download={item.download}
+                                            onClick={() => setIsOpen(false)}
+                                            className="px-4 py-3 rounded-xl text-gray-700 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-purple-500/15 transition"
+                                        >
+                                            {item.label}
+                                        </a>
+                                    );
+                                }
+
                                 return (
                                     <Link
                                         key={item.href}
@@ -124,13 +156,13 @@ export default function Header() {
                                 );
                             })}
 
-                            <Link
-                                href="#contact"
+                            <a
+                                href={`mailto:${CONTACT_EMAIL}`}
                                 onClick={() => setIsOpen(false)}
                                 className="mt-2 px-4 py-3 rounded-xl text-center font-semibold text-white bg-blue-600 dark:bg-purple-600 shadow"
                             >
                                 Hire Me
-                            </Link>
+                            </a>
 
                             <div className="pt-3 border-t border-blue-200 dark:border-purple-500/30 flex justify-center">
                                 <ThemeToggle />

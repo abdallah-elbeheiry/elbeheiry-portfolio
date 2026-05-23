@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Elbeheiry Portfolio",
-  description: "Portfolio website of Abdallah Elbeheiry",
+  title: "Abdallah Elbeheiry | Backend Engineering Intern",
+  description: "Backend-focused portfolio for Abdallah Elbeheiry, a Cairo University computer science student building with .NET, Go, Java, and modern web tooling.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className="bg-gray-50 dark:bg-gray-900 transition-colors duration-500 ease-in-out min-h-screen">
+      <body className={`${geistSans.variable} ${geistMono.variable} bg-gray-50 dark:bg-gray-900 transition-colors duration-500 ease-in-out min-h-screen`}>
         <Header />
 
         <main>{children}</main>
