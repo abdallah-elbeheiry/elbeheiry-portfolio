@@ -6,6 +6,6 @@ const nextConfig = {
     unoptimized: true,
   },
   basePath: isProd ? "/elbeheiry-portfolio" : "",
-  assetPrefix: isProd ? "/elbeheiry-portfolio/" : "",
+  assetPrefix: isProd ? "/elbeheiry-portfolio" : "",
 };
 export default nextConfig;
