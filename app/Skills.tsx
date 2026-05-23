@@ -71,7 +71,7 @@ export default function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="max-w-3xl text-center"
+                className="max-w-5xl text-center"
             >
                 <p className="text-sm uppercase tracking-[0.18em] sm:tracking-[0.28em] text-blue-600 dark:text-purple-400 font-semibold">
                     Skills
@@ -85,7 +85,7 @@ export default function Skills() {
                 </p>
             </motion.div>
 
-            <div className="mt-14 grid grid-cols-1 gap-6 w-full max-w-7xl md:grid-cols-2">
+            <div className="mt-14 grid grid-cols-1 gap-6 w-full max-w-[100rem] md:grid-cols-2 lg:grid-cols-4">
                 {strengths.map((item, index) => {
                     const Icon = item.icon;
 

@@ -38,7 +38,7 @@ export default function Header() {
                 ? "bg-white/90 dark:bg-gray-900/85 shadow-md border-b border-blue-200 dark:border-purple-500/30"
                 : "bg-white/70 dark:bg-gray-900/70"}`}
         >
-            <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div className="max-w-[100rem] mx-auto px-6 h-20 flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="group">
                     <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight

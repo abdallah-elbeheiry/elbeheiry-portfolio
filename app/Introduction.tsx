@@ -37,7 +37,7 @@ export default function Introduction() {
             <div className="absolute inset-0 -z-10 bg-gray-50 dark:bg-gray-900" />
             <div className="absolute inset-0 -z-10 opacity-[0.55] dark:opacity-[0.28] bg-[linear-gradient(to_right,rgba(37,99,235,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(37,99,235,0.1)_1px,transparent_1px)] bg-[size:44px_44px]" />
 
-            <div className="mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-[1.08fr_0.92fr]">
+            <div className="mx-auto grid w-full max-w-[100rem] items-center gap-10 lg:grid-cols-[1.08fr_0.92fr]">
                 <div className="text-center lg:text-left">
                     <motion.p
                         initial={{ opacity: 0, y: -12 }}

@@ -76,7 +76,7 @@ export default function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45 }}
-                className="max-w-3xl text-center"
+                className="max-w-5xl text-center"
             >
                 <p className="text-sm uppercase tracking-[0.18em] sm:tracking-[0.28em] text-blue-600 dark:text-purple-400 font-semibold">
                     Projects
@@ -90,7 +90,7 @@ export default function Projects() {
                 </p>
             </motion.div>
 
-            <div className="mt-14 grid grid-cols-1 gap-8 w-full max-w-7xl lg:grid-cols-3">
+            <div className="mx-auto mt-14 grid w-full grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-3 lg:px-10 xl:px-14 max-w-[100rem]">
                 {projects.map((project, index) => {
                     const Icon = project.icon;
 
@@ -102,7 +102,7 @@ export default function Projects() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.45, delay: index * 0.08 }}
                             whileHover={{ y: -10 }}
-                            className={`project-card-frame group relative rounded-[1.6rem] bg-gradient-to-br ${project.frame} p-[3px] shadow-2xl ${project.glow} transition-transform`}
+                            className={`project-card-frame group relative overflow-hidden rounded-[1.6rem] bg-gradient-to-br ${project.frame} p-[3px] shadow-2xl ${project.glow} transition-transform`}
                         >
                             <div className="pointer-events-none absolute inset-0 rounded-[1.6rem] border border-blue-200/70 dark:border-purple-300/20" />
 

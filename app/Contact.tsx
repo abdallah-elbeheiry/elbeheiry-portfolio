@@ -17,7 +17,7 @@ export default function Contact() {
             id="contact"
             className="relative mt-36 mb-24 overflow-hidden px-4 sm:px-6 scroll-mt-32"
         >
-            <div className="mx-auto grid w-full max-w-5xl gap-6 rounded-2xl border border-blue-100 bg-blue-50/85 p-5 shadow-xl shadow-blue-950/5 backdrop-blur dark:border-purple-500/20 dark:bg-gray-950/85 dark:shadow-purple-950/10 sm:p-8 md:grid-cols-[1.1fr_0.9fr]">
+            <div className="mx-auto grid w-full max-w-[100rem] gap-6 rounded-2xl border border-blue-100 bg-blue-50/85 p-5 shadow-xl shadow-blue-950/5 backdrop-blur dark:border-purple-500/20 dark:bg-gray-950/85 dark:shadow-purple-950/10 sm:p-8 md:grid-cols-[1.1fr_0.9fr]">
                 <motion.div
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
