@@ -3,9 +3,6 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-const isProd = process.env.NODE_ENV === "production";
-const BASE_PATH = isProd ? "/elbeheiry-portfolio" : "";
-
 export default function ThemeToggle() {
   const [isDark, setIsDark] = useState(false);
 
@@ -40,7 +37,7 @@ export default function ThemeToggle() {
     >
       <Image
         id="theme-icon"
-        src={isDark ? `${BASE_PATH}/theme-icon-dark.svg` : `${BASE_PATH}/theme-icon.svg`}
+        src={isDark ? "/theme-icon-dark.svg" : "/theme-icon.svg"}
         alt="Toggle Theme"
         width={48}
         height={48}

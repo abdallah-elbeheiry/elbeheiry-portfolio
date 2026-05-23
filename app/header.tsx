@@ -7,17 +7,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "../app/theme-toggle";
 
-const isProd = process.env.NODE_ENV === "production";
-const BASE_PATH = isProd ? "/elbeheiry-portfolio" : "";
-const CV_FILE_NAME = "elbeheiry CV new.pdf";
-const CV_HREF = `${BASE_PATH}/${encodeURIComponent(CV_FILE_NAME)}`;
 const CONTACT_EMAIL = "abdallahelbhary39@gmail.com";
 
 const navItems = [
     { label: "Home", href: "/#introduction" },
     { label: "Strengths", href: "/#skills" },
     { label: "Projects", href: "/#projects" },
-    { label: "Download CV", href: CV_HREF, external: true, download: "Abdallah-Elbeheiry-CV.pdf" },
+    { label: "Download CV", href: "/elbeheiry CV new.pdf", external: true, download: "Abdallah-Elbeheiry-CV.pdf" },
 ];
 
 export default function Header() {
@@ -55,9 +51,7 @@ export default function Header() {
                 {/* Desktop Nav */}
                 <nav className="hidden sm:flex items-center gap-2">
                     {navItems.map((item) => {
-                        const href = item.href.startsWith("/") && item.href.includes("#") 
-                            ? `${BASE_PATH}${item.href}` 
-                            : item.href;
+                        const href = item.href;
                         const active = !item.external && pathname === href;
 
                         if (item.external) {
@@ -130,9 +124,7 @@ export default function Header() {
                     >
                         <div className="flex flex-col px-6 py-5 gap-2">
                             {navItems.map((item) => {
-                                const href = item.href.startsWith("/") && item.href.includes("#") 
-                                    ? `${BASE_PATH}${item.href}` 
-                                    : item.href;
+                                const href = item.href;
 
                                 if (item.external) {
                                     return (
