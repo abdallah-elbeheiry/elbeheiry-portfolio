@@ -4,6 +4,9 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Code2, Container, Database, Download, GraduationCap, Mail, MapPin, Server } from "lucide-react";
 
+const isProd = process.env.NODE_ENV === "production";
+const BASE_PATH = isProd ? "/elbeheiry-portfolio" : "";
+const CV_HREF = `${BASE_PATH}/${encodeURIComponent("elbeheiry CV new.pdf")}`;
 const EMAIL = "abdallahelbhary39@gmail.com";
 
 const highlights = [
